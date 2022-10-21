@@ -1,0 +1,81 @@
+@use "../../../styles" as *;
+
+.DropDown {
+  z-index: $zindex-dropdown;
+
+  position: absolute;
+  margin-top: 10px;
+  padding: 10px 0;
+  border-radius: border-radius("small");
+  background-color: $white;
+  box-shadow: $shd-tmp-deep-20;
+  max-height: 0%;
+  animation: drop 0.5s ease;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+
+  @keyframes drop {
+    to {
+      max-height: 300px;
+    }
+  }
+
+  .options {
+    max-height: 200px;
+    overflow-y: auto;
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding-block: 10px;
+      width: 100%;
+      padding-inline: 5%;
+      @include flex-justify-start;
+
+      &:hover {
+        background-color: $hvr-light;
+      }
+      &.active {
+        background-color: darken($hvr-light, 5%);
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        width: 90%;
+        height: 1px;
+        background-color: $gray;
+      }
+
+      cursor: pointer;
+      transition: 0.25s;
+    }
+  }
+
+  .Title,
+  .Footer {
+    display: block;
+    @extend .fs-sm;
+    color: $gray;
+    padding-inline: 5%;
+
+    &.Title {
+      text-align: left;
+    }
+    &.Footer {
+      margin-top: 10px;
+      padding-top: 5px;
+      text-align: right;
+    }
+  }
+}
+.Empty {
+  @include flex;
+  color: $gray;
+  border-top: 1px solid $hvr-gray;
+  border-bottom: 1px solid $hvr-gray;
+  padding-block: 15px;
+  margin-top: 5px;
+}

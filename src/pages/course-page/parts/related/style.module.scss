@@ -1,0 +1,9 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @extend .page;
+
+  & > div {
+    padding-block: 30px;
+  }
+}

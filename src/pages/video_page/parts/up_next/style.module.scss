@@ -1,0 +1,71 @@
+@use "../../../../styles" as *;
+
+.card {
+  @include flex-between;
+  gap: 30px;
+  padding-inline: 20px;
+  margin-top: 15px;
+  height: 80px;
+  background: $white;
+  @extend .shd-4;
+  border-radius: border-radius("small");
+  cursor: pointer;
+
+  &__thumbnail {
+    @include flex;
+    gap: 15px;
+
+    &__img {
+      position: relative;
+      @include flex;
+
+      &:hover::before {
+        background: $primary;
+      }
+
+      &::before {
+        content: "▲";
+        @include flex;
+        transform: rotate(90deg);
+        color: $white;
+        position: absolute;
+        width: 27.5px;
+        height: 27.5px;
+        background: $hvr-gray;
+        border-radius: border-radius("round");
+        transition: 0.25;
+      }
+
+      img {
+        height: 60px;
+        border: 1px solid $hvr-gray;
+        border-radius: border-radius("small");
+      }
+    }
+
+    &__details {
+      height: 100%;
+      @include flex-col;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      b {
+        font-weight: font-weight("medium");
+      }
+      span {
+        font-size: font-size("sm");
+        color: $gray;
+      }
+    }
+  }
+
+  button {
+    @include flex;
+    font-weight: font-weight("medium");
+    padding: 10px 25px;
+  }
+}

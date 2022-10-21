@@ -1,0 +1,41 @@
+@use "../../styles" as *;
+
+.Container {
+  background-color: $light;
+
+  h2 {
+    font-size: 46px !important;
+  }
+
+  .Buttons {
+    gap: 30px;
+
+    & button {
+      color: $gray;
+      font-weight: font-weight("bold");
+      box-shadow: 1px 1px 4px 0 hsl(0, 0, 0, 0.16);
+      width: 155px;
+
+      &.ActiveButton {
+        color: $white !important;
+        border-color: hsl(202deg, 97%, 48%);
+        box-shadow: none;
+        background-color: $primary;
+      }
+    }
+  }
+}
+
+.Date {
+  color: $comet;
+  padding-bottom: 5px;
+}
+
+.Link {
+  font-weight: font-weight("bold");
+  font-size: font-size("m");
+
+  &:hover {
+    color: $blue;
+  }
+}

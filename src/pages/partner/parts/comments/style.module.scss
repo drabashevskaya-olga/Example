@@ -1,0 +1,52 @@
+@use "../../../../styles" as *;
+
+.Comment {
+    max-width: 422px;
+    width: 100%;
+
+    @media (max-width: $bp-mobile) {
+        max-width: 100%;
+        width: auto;
+    }
+
+    .LeftText,
+    .RightText {
+        font-size: font-size("cmnt-l");
+        position: relative;
+        background-color: $comment-bg;
+        font-style: italic;
+        border-radius: 30px;
+        padding: 20px;
+        opacity: 0.7;
+        margin-bottom: 20px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            border: 15px solid transparent;
+            border-top: 25px solid #F2F7FF;
+            bottom: -35px;
+            left: 45px;
+            border-radius: 2px;
+        }
+    }
+
+    .RightText {
+        &:before {
+            right: 45px;
+            left: auto;
+        }
+    }
+
+    .Author {
+        font-weight: font-weight("medium");
+        padding: 0 35px;
+    }
+
+    .University {
+        color: $gray;
+        font-size: font-size("sm");
+        font-weight: font-weight("medium");
+        padding: 0 35px;
+    }
+}

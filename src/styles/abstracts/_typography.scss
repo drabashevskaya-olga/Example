@@ -1,0 +1,76 @@
+@use "fonts" as *;
+@use "colors" as *;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+* {
+  font-family: "Open Sans";
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  @extend .fs-ms;
+  font-weight: font-weight("normal");
+}
+
+$headings-font-family: "Raleway";
+$small-item: 600px;
+
+.paragraph {
+  max-width: $small-item;
+}
+
+.open_sans {
+  font-family: "Open Sans" !important;
+}
+.raleway {
+  font-family: "Raleway" !important;
+}
+
+// fonts-size
+
+:root {
+  @include create_fs_classes($fs, "desktop");
+  @include create_fw_classes($fw);
+}
+@media (max-width: 991px) {
+  :root {
+    @include create_fs_classes($fs, "mobile");
+  }
+}
+
+h1,
+.h1 {
+  @extend .fs-l;
+  @extend .fw-bold;
+  color: $dark;
+}
+h2,
+.h2 {
+  @extend .fs-ml;
+  @extend .fw-bold;
+  color: $dark;
+}
+h3,
+.h3 {
+  @extend .fs-m;
+  @extend .fw-bold;
+  margin: 0;
+}
+h4,
+.h4 {
+  @extend .fs-ms;
+  @extend .fw-bold;
+  margin: 0;
+}
+h5,
+.h5 {
+  @extend .fs-sm;
+  @extend .fw-bold;
+  margin: 0;
+}
+h6,
+.h6 {
+  @extend .fs-xsm;
+  @extend .fw-bold;
+  margin: 0;
+}

@@ -1,0 +1,23 @@
+@use "../../../styles" as *;
+
+.checkbox__label {
+  input[type="checkbox"] {
+    &:checked {
+      background-color: $primary;
+    }
+    &:focus-visible,
+    &:focus {
+      box-shadow: $shd-tmp-bs rgba($primary, 0.25);
+    }
+    &.success {
+      border-color: $success;
+      &:checked {
+        background-color: $success;
+      }
+      &:focus-visible,
+      &:focus {
+        box-shadow: $shd-tmp-bs rgba($success, 0.25);
+      }
+    }
+  }
+}

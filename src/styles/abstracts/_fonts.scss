@@ -1,0 +1,60 @@
+// when using this function, text will not be responsive.
+@function font-size($key) {
+  @if not map-has-key($fs, $key + "") {
+    @return 300px;
+  }
+  @return map-get($fs, $key + "");
+}
+
+@function font-weight($key) {
+  @if not map-has-key($fw, $key + "") {
+    @return 900;
+  }
+  @return map-get($fw, $key + "");
+}
+
+@mixin create_fs_classes($fs, $os) {
+  @if $os == "mobile" {
+    @each $key, $value in $fs {
+      .fs-#{$key} {
+        font-size: calc(#{$value} * 0.75) !important;
+      }
+    }
+  } @else {
+    @each $key, $value in $fs {
+      .fs-#{$key} {
+        font-size: #{$value};
+      }
+    }
+  }
+}
+
+@mixin create_fw_classes($fw) {
+  @each $key, $value in $fw {
+    .fw-#{$key} {
+      font-weight: #{$value};
+    }
+  }
+}
+
+$fw: (
+  "bolder": 900,
+  "bold": 700,
+  "medium": 600,
+  "light-headline": 500,
+  "normal": 400,
+  "light": 300,
+);
+
+$fs: (
+  "xxl": 4rem,
+  "xl": 3rem,
+  "l": 2.4rem,
+  "ml": 2rem,
+  "m": 1.2rem,
+  "ms": 1rem,
+  "cmnt-l": 0.9rem,
+  "sm": 0.8rem,
+  "cmnt-s": 0.7rem,
+  "xsm": 0.6rem,
+);

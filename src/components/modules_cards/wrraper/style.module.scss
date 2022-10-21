@@ -1,0 +1,35 @@
+@use "../../../styles" as *;
+
+.Container {
+  @include flex-wrap;
+
+  justify-content: flex-start;
+  align-items: stretch;
+
+  @media (max-width: $bp-tablet) {
+    & {
+      justify-content: space-evenly;
+
+      & > div {
+        width: 310px !important;
+        margin-inline: unset !important;
+      }
+    }
+  }
+
+  & > div {
+    width: 30%;
+    margin-block: 30px;
+
+    // every third child, starts from the second child
+    // will be charged for the spaces between the carda on his line
+    /*
+      div *div* div
+      div *div* div
+      div *div* div
+    */
+    &:nth-child(3n + 2) {
+      margin-inline: 4%;
+    }
+  }
+}

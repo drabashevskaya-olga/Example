@@ -1,0 +1,10 @@
+@use "../../styles" as *;
+
+.text-gray,
+a[disabled] {
+  color: $gray;
+  cursor: auto;
+}
+a[no-decoration="true"] {
+  color: inherit;
+}

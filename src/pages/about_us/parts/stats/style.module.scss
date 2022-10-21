@@ -1,0 +1,44 @@
+@use "../../../../styles" as *;
+
+.Container {
+  background: $primary;
+  padding-block: 30px;
+}
+.Row {
+  margin-block: 20px;
+  @include flex-wrap;
+  justify-content: space-between;
+
+  &:last-child {
+    justify-content: space-evenly;
+  }
+
+  & > div {
+    @include flex-col;
+    align-items: flex-start;
+    color: $light;
+
+    span:first-child {
+      font-size: font-size("xl");
+      font-weight: font-weight("bold");
+    }
+  }
+}
+
+.Line {
+  display: flex;
+  overflow: hidden;
+
+  img {
+    position: relative;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .Row {
+    justify-content: space-evenly;
+  }
+  .Line {
+    display: none;
+  }
+}

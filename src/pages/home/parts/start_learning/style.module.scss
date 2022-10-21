@@ -1,0 +1,43 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include flex-col;
+  padding-inline: $page-padding-inline;
+  padding-block: 50px;
+  background-color: $light;
+  display: flex;
+}
+
+.Headline {
+  @include flex-col;
+  gap: 10px;
+
+  & * {
+    text-align: center;
+  }
+}
+
+.Wrraper {
+  overflow: auto;
+  width: 100%;
+  @include HorizontalScrollbar;
+
+  .Cards {
+    @include flex-wrap;
+    gap: 30px;
+    padding-block: 30px 5px; // for the shadow
+  }
+
+  @media (max-width: $bp-tablet) {
+    .Cards {
+      all: unset;
+      margin-inline: auto;
+      display: flex;
+
+      & > * {
+        margin-inline: 15px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

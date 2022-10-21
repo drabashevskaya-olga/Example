@@ -1,0 +1,75 @@
+// backgrounds
+$primary: hsl(202, 97%, 48%);
+$success: hsl(148, 79%, 43%);
+$danger: hsl(354, 70%, 54%);
+$light: hsl(195, 67%, 99%);
+$white: hsl(0, 0%, 100%);
+$gray: hsl(222, 10%, 74%);
+$partner-bg: hsl(240, 100%, 97%);
+$light-blue-bg: hsl(207, 100%, 96%);
+$comment-bg: hsl(217, 100%, 97%);
+$partner-form-bg: hsl(221, 100%, 95%);
+$carrers_bg: hsl(220, 33%, 98%);
+
+// text colors
+$dark: hsl(220, 19%, 21%);
+$txt_dark: lighten($dark, 20%);
+$txt_black: hsl(220, 19%, 21%);
+$txt_pane_gray: hsl(218, 17%, 41%);
+
+// special colors
+$green: hsl(122, 39%, 67%);
+$pink: hsl(357, 81%, 78%);
+$bright-pink: hsl(338, 91%, 48%);
+$purple: hsl(244, 62%, 70%);
+$gold: hsl(49, 91%, 48%);
+$cyan: hsl(186, 87%, 35%);
+$organge: hsl(24, 60%, 68%);
+$blue: hsl(207, 59%, 57%);
+$comet: hsl(218, 17%, 41%);
+
+// hovers
+$hvr-light: hsl(0, 0%, 98%);
+$hvr-gray: hsl(0, 0%, 90%);
+$hvr-primary: hsl(203, 75%, 95%);
+
+// social colors
+$fb-color: hsl(220, 46, 48);
+$twitter-color: hsl(203, 89, 53);
+$pinterest-color: hsl(351, 100, 45);
+
+// too late for major changes :(
+
+$colors: (
+  "primary": $primary,
+  "success": $success,
+  "danger": $danger,
+  "light": $light,
+  "white": $white,
+  "gray": $gray,
+  "dark": $dark,
+  "txt_dark": $txt_dark,
+  "txt_black": $txt_black,
+  "green": $green,
+  "pink": $pink,
+  "bright-pink": $bright-pink,
+  "purple": $purple,
+  "gold": $gold,
+  "cyan": $cyan,
+  "organge": $organge,
+  "blue": $blue,
+  "comet": $comet,
+  "hvr-light": $hvr-light,
+  "hvr-gray": $hvr-gray,
+  "hvr-primary": $hvr-primary,
+  "fb-color": $fb-color,
+  "twitter-color": $twitter-color,
+  "pinterest-color": $pinterest-color,
+);
+
+@function color($color) {
+  @if not map-has-key($colors, $color) {
+    @return red;
+  }
+  @return map-get($colors, $color);
+}

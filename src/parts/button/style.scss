@@ -1,0 +1,77 @@
+@use "../../styles" as *;
+
+.btn-group {
+  box-shadow: $shd-sm rgba($dark, 0.5);
+
+  .btn:not(:last-child) {
+    border-right: 1px solid $gray;
+  }
+}
+
+.btn {
+  @include flex;
+  gap: 7.5px;
+  cursor: pointer;
+
+  &[disable="true"] {
+    border-color: $hvr-gray;
+    background: $hvr-gray;
+    color: lighten($dark, 20%) !important;
+    cursor: no-drop;
+  }
+
+  &:not([class*="btn-outline"]),
+  &:hover {
+    color: $white;
+  }
+
+  &[class*="btn-outline"]:not(:hover) {
+    &[class*="primary"] {
+      color: $primary;
+    }
+  }
+
+  &.btn-light,
+  &.btn-white {
+    color: $dark !important;
+
+    &:not(:has(.btn-white, .btn-light)) {
+      box-shadow: $shd-sm rgba($dark, 0.5);
+    }
+  }
+
+  &:active,
+  &:focus,
+  &:active:focus {
+    box-shadow: inherit !important;
+  }
+
+  &:focus-visible {
+    outline: 1px solid black;
+  }
+
+  &.btn-primary:focus:not(:active, :hover) {
+    background: $primary;
+  }
+  &.btn-success:focus:not(:active, :hover, [class*="btn-outline"]) {
+    background: $success;
+  }
+}
+
+.btn.btn-link {
+  color: $dark;
+  font-weight: font-weight("medium");
+  padding: 10px 20px;
+
+  &:hover {
+    background: $hvr-light;
+    border: 1px solid $hvr-gray;
+    text-decoration: none !important;
+  }
+
+  &:focus-visible {
+    background: $hvr-light;
+    border: 1px solid $hvr-gray;
+    text-decoration: underline;
+  }
+}

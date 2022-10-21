@@ -1,0 +1,50 @@
+@use "../../styles" as *;
+
+.Container {
+  padding: 15px;
+  @include flex-col;
+  gap: 15px;
+}
+
+.comment {
+  width: 100%;
+  @include flex-align-start;
+  justify-content: flex-start;
+  gap: 15px;
+
+  &__avatar {
+    & div {
+      width: 50px;
+      height: 50px;
+      background: $hvr_primary;
+      border-radius: border-radius("round");
+      @include flex;
+    }
+    & img {
+      width: 50px;
+      height: 50px;
+      border-radius: border-radius("round");
+    }
+  }
+
+  &__content {
+    @include flex-align-start;
+    flex-direction: column;
+
+    &__header {
+      @include flex;
+      gap: 10px;
+
+      span {
+        color: $gray;
+        font-size: font-size("sm");
+      }
+    }
+
+    &__p {
+      margin-top: 10px;
+      font-size: font-size("ms");
+      color: $dark;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include background-image("../../../../assets/JoinUs/banner.png");
+}

@@ -1,0 +1,39 @@
+@use "../../../styles" as *;
+
+.Container {
+  width: 500px;
+  max-width: 100%;
+}
+
+.Forms {
+  background: $white;
+  @extend .shd-2;
+  padding: 20px 30px;
+
+  border-radius: border-radius("small");
+
+  & input {
+    font-size: font-size("sm");
+  }
+
+  .coupon {
+    @include flex;
+
+    input {
+      flex: 4;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    button {
+      flex: 1;
+      background: $primary;
+
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &:hover {
+        background: darken($primary, 5%);
+      }
+    }
+  }
+}

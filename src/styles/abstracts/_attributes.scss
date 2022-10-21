@@ -1,0 +1,41 @@
+@use "shadows" as *;
+@use "colors" as *;
+
+*[block] {
+  width: 100%;
+}
+
+.btn {
+  &[no-radius] {
+    border-radius: 0 !important;
+  }
+
+  &[glow] {
+    &[class*="primary"] {
+      box-shadow: $shd-tmp-glow $shd-primary;
+    }
+    &[class*="success"] {
+      box-shadow: $shd-tmp-glow $shd-success;
+    }
+  }
+}
+
+/**
+  so default link has no _underline_, but on :hover, it will
+
+  * use @no-decoration, if you dont want _underline on :hover
+  * use @decoration, if you want the link to always have _underline_
+**/
+a {
+  &:not([decoration]) {
+    text-decoration: none;
+  }
+  &:focus-visible,
+  &:hover {
+    outline: none;
+
+    &:not([no-decoration]) {
+      text-decoration: underline !important;
+    }
+  }
+}

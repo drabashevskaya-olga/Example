@@ -1,0 +1,11 @@
+@use "../../../styles" as *;
+
+.Container {
+  padding-block: 50px;
+}
+.Form {
+  position: relative;
+  width: 450px;
+  max-width: 90%;
+  margin-inline: auto;
+}

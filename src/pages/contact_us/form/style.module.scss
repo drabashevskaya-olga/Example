@@ -1,0 +1,26 @@
+@use "../../../styles" as *;
+
+.Container {
+  position: relative;
+  @include flex-col;
+  padding-block: 60px;
+  background-color: $light;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 0.5px;
+    width: 600px;
+    max-width: 100%;
+    background: $hvr_gray;
+  }
+  form {
+    position: relative;
+    width: 450px;
+    max-width: 100%;
+
+    @include flex-col;
+    gap: 15px;
+  }
+}

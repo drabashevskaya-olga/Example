@@ -1,0 +1,5 @@
+// max width of elements should be 1230px, but on mobile you want at least 5% inline padding
+$page-padding-inline: max(5%, calc((100vw - 1230px) / 2));
+
+$header-height: 5rem;
+$header-helper-height: 3rem;

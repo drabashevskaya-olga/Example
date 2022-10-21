@@ -1,0 +1,64 @@
+@use "../../../../styles" as *;
+
+.Container {
+    padding: 105px 0;
+    background-color: #FDF0DA;
+    position: relative;
+
+    .Video {
+        border: 1px dashed $primary;
+        border-radius: 12px;
+        padding: 15px;
+
+        @media (max-width: $bp-tablet) {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: $bp-mobile) {
+            width: 100%;
+            max-width: 390px;
+        }
+
+        iframe {
+            min-height: 312px;
+
+            @media (max-width: $bp-tablet) {
+                min-height: 262px;
+            }
+
+            @media (max-width: $bp-mobile) {
+                min-height: 202px;
+            }
+        }
+    }
+
+    H2 {
+        @media (max-width: $bp-mobile) {
+            text-align: center;
+        }
+    }
+
+    P {
+        color: $comet;
+
+        @media (max-width: $bp-mobile) {
+            text-align: center;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -72px;
+        background-image: url('../../../../assets/partner/wave-border.svg');
+        background-size: cover;
+        height: 72px;
+        width: 100%;
+    }
+
+    &::after {
+        content: '';
+        
+    }
+}

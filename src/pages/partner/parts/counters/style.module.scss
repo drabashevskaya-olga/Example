@@ -1,0 +1,12 @@
+@use "../../../../styles" as *;
+
+.Number {
+    text-align: center;
+    font-size: font-size("xxl");
+    font-weight: font-weight("bold");
+    margin-bottom: 6px;
+
+    @media (max-width: $bp-mobile) {
+        font-size: font-size("ml");
+    }
+}

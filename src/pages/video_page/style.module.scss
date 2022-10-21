@@ -1,0 +1,46 @@
+@use "../../styles" as *;
+
+.Container {
+  @extend .page;
+
+  margin-block: 50px;
+
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+
+  grid-template-areas:
+    "Playlist Video"
+    "Playlist UpNext"
+    "Playlist Comments"
+    "Playlist About";
+  grid-gap: 20px;
+
+  @media (max-width: $bp-tablet) {
+    & {
+      grid-template-columns: 1fr;
+
+      grid-template-areas:
+        "Video"
+        "UpNext"
+        "Playlist"
+        "Comments"
+        "About";
+    }
+  }
+}
+
+.Playlist {
+  grid-area: Playlist;
+}
+.Video {
+  grid-area: Video;
+}
+.UpNext {
+  grid-area: UpNext;
+}
+.Comments {
+  grid-area: Comments;
+}
+.About {
+  grid-area: About;
+}

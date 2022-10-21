@@ -1,0 +1,16 @@
+{
+  "key": "pricing",
+  "headline": "Complete your membership for instant access",
+  "monthly": {
+    "name": "Monthly",
+    "price": 14.99
+  },
+  "quarterly": {
+    "name": "Quarterly",
+    "price": 11.99
+  },
+  "yearly": {
+    "name": "Yearly",
+    "price": 9.99
+  }
+}

@@ -1,0 +1,43 @@
+@use "../../../../../../styles" as *;
+
+.ModuleHead {
+  padding-bottom: 5px;
+
+  &[aria-expanded="true"] {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+  h3 {
+    @include flex-justify-start;
+    gap: 4px;
+
+    svg {
+      width: 12px;
+      transition: 0.25s;
+    }
+  }
+}
+
+.Modules {
+  @include flex-wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+
+  & > div {
+    flex: calc(50% - 5px);
+    min-width: min(300px, 90%);
+
+    @media (min-width: $bp-tablet) {
+      & {
+        max-width: calc(50% - 5px);
+      }
+    }
+  }
+}
+
+.Gray {
+  font-size: 13px;
+  cursor: pointer;
+}

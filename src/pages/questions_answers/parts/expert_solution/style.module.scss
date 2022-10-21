@@ -1,0 +1,128 @@
+@use "../../../../styles" as *;
+
+.Container {
+    background-color: $white;
+    border-top: 4px solid $primary;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    .Content {
+        @media (max-width: $bp-mobile) {
+            width: 100%;
+        }
+    }
+
+    .VideoWrap {
+        @media (max-width: $bp-mobile) {
+            width: 100%;
+            padding-top: 20px;
+        }
+    }
+
+    .Playlist {
+        padding-top: 20px;
+        padding-right: 16px;
+
+        @media (max-width: $bp-mobile) {
+            & {
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+
+        .Accordion {
+            padding-top: 8px;
+
+            span {
+                width: 204px;
+                color: $txt_pane_gray;
+                font-size: font-size("cmnt-l");
+
+                &:first-child {
+                    font-weight: font-weight("bold");
+                    color: $txt_black;
+                    font-size: font-size("ms");
+                }
+            }
+
+            button {
+                color: $txt_black;
+                background-color: $white;
+                box-shadow: none;
+                padding: 20px;
+
+                &[aria-expanded="true"] {
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+                }
+            }
+
+            .List {
+                list-style: none;
+                padding-left: 0;
+
+                li {
+                    position: relative;
+                    
+                    &[active="true"] {
+                        a {
+                            font-weight: font-weight("bold");
+                            color: $txt_black;
+
+                            &::after {
+                                border-color: $primary;
+                            }        
+                        }
+                    }
+                    a {
+                        display: block;
+                        padding-left: 40px;
+                        color: $gray;
+                        font-size: font-size("cmnt-l");
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 18px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 0.6rem;
+                            color: hsl(0deg, 0%, 100%);
+                            width: 21px;
+                            height: 21px;
+                            border-radius: 50%;
+                            border: 1px solid $gray;
+                            background-color: $white;
+                            z-index: 1;
+                        }
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 1px;
+                        height: 100%;
+                        background-color: $gray;
+                        position: absolute;
+                        left: 10px;
+                        bottom: -50%;
+                    }
+
+                    &:last-child::after {
+                        height: 0%;
+                    }
+                }
+            }
+
+            .Video {
+                width: 100%;
+                position: relative;
+              
+                & > div:first-child {
+                  border-radius: border-radius("small");
+                  @extend .shd-6;
+                }
+            }
+        }
+    }
+}

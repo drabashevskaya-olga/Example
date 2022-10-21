@@ -1,0 +1,43 @@
+@use "../../../styles" as *;
+
+.Content {
+  @include flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 30px;
+
+  @media (max-width: $bp-mobile) {
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+}
+
+.Details {
+  width: 400px;
+  max-width: 100%;
+}
+.Details ul {
+  list-style: none;
+  @include flex-col;
+  gap: 7.5px;
+  align-items: flex-start;
+  padding: 0;
+
+  li {
+    font-size: font-size("sm");
+    &:before {
+      content: "";
+      color: $success;
+      font-weight: bold;
+      display: inline-block;
+
+      margin-right: 20px;
+
+      transform: rotate(45deg);
+      height: 18px;
+      width: 9px;
+      border-bottom: 3.5px solid $success;
+      border-right: 3.5px solid $success;
+    }
+  }
+}

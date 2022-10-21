@@ -1,0 +1,18 @@
+@function border-radius($key) {
+  @if not map-has-key($br, $key) {
+    @return 50%;
+  }
+  @return map-get($br, $key);
+}
+
+$br: (
+  "small": 0.25rem,
+  "medium": 0.75rem,
+  "round": 50%,
+);
+
+@each $key, $value in $br {
+  .radius-#{$key} {
+    border-radius: $value;
+  }
+}

@@ -1,0 +1,38 @@
+@use "../../../styles" as *;
+
+.Text {
+  @include flex;
+
+  & .FileName {
+    width: 100%;
+    @include flex;
+    justify-content: space-between;
+  }
+
+  & svg path {
+    fill: $gray;
+  }
+  & span {
+    max-width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:nth-child(1) {
+      @extend .fs-ms;
+    }
+
+    &:nth-child(2) {
+      &:hover {
+        background: $hvr_gray;
+      }
+
+      transition: 0.25s;
+      height: 25px;
+      width: 25px;
+      @include flex;
+      border-radius: border-radius("round");
+      cursor: pointer;
+    }
+  }
+}

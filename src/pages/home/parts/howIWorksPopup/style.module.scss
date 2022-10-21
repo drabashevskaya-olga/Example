@@ -1,0 +1,11 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include flex-col;
+  gap: 20px;
+  align-items: center;
+
+  button {
+    font-size: 15px;
+  }
+}

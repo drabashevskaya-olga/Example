@@ -1,0 +1,199 @@
+@use "../../../../styles" as *;
+
+.Container {
+    background-color: $white;
+    border-top: 4px solid $primary;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    .Rows {
+        @media (max-width: $bp-mobile) {
+            flex-wrap: wrap;
+        }
+
+        .Break {
+            @media (max-width: $bp-mobile) {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    .Title {
+        font-size: font-size("m");
+        font-weight: font-weight("bold");
+        padding-bottom: 4px;
+        color: $txt_black;
+
+        @media (max-width: $bp-mobile) {
+            font-size: font-size("cmnt-l");
+        }
+    }
+
+    .VideoPreview {
+        position: relative;
+        width: 120px;
+        margin: 16px 0;
+        border-radius: 5px;
+        @include flex;
+
+        img {
+            width: 120px;
+        }
+        
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $shd-tmp-thumbail;
+            opacity: 0.25;
+            border-radius: 5px;
+        }
+
+        .PlayBtn {
+            position: absolute;
+
+            aspect-ratio: 1 / 1;
+            width: 20%;
+            border-radius: border-radius("round");
+        
+            @include flex;
+            background: $primary;
+        
+            transform: rotate(90deg);
+        
+            color: $white;
+        
+            svg {
+              font-size: 50%;
+              margin-bottom: 2.5px;
+            }
+        }
+
+        @media (max-width: $bp-mobile) {
+            display: none;
+        }
+    }
+
+    .VideoPreviewMobile {
+        display: none;
+
+        .PlayBtn {
+            position: relative;
+            top: 3px;
+
+            aspect-ratio: 1 / 1;
+            width: 14px;
+            border-radius: border-radius("round");
+        
+            @include flex;
+            background: $primary;
+        
+            transform: rotate(90deg);
+        
+            color: $white;
+        
+            svg {
+              font-size: 50%;
+              margin-bottom: 2.5px;
+            }
+        }
+
+        @media (max-width: $bp-mobile) {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    .UserIcon {
+        img {
+            width: 20px;
+        }
+    }
+
+    .UserName {
+        font-weight: font-weight("medium");
+        color: $txt_black;
+
+        @media (max-width: $bp-mobile) {
+            font-size: font-size("sm");
+        }
+    }
+
+    .College {
+        color: $txt_pane_gray;
+        font-size: font-size("cmnt-l");
+
+        @media (max-width: $bp-mobile) {
+            font-size: font-size("sm");
+        }
+    }
+
+    .Subject {
+        @media (max-width: $bp-mobile) {
+            order: 6 !important;
+        }
+
+        a {
+            font-size: font-size("cmnt-l");
+            color: $primary;
+
+            @media (max-width: $bp-mobile) {
+                font-size: font-size("sm");
+            }
+        }
+    }
+
+    .Count {
+        font-size: font-size("cmnt-l");
+        color: $txt_pane_gray;
+
+        @media (max-width: $bp-mobile) {
+            font-size: font-size("sm");
+            order: 5 !important;
+        }
+    }
+
+    .PaginateContainer {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        justify-content: center;
+
+        .PaginateItem {
+            font-weight: font-weight("medium");
+            font-size: font-size("cmnt-l");
+        }
+
+        .PaginateActiveItem {
+            color: $primary;
+        }
+
+        .PaginatePreviousItem {
+            font-weight: font-weight("medium");
+            font-size: font-size("ms");
+
+            a {
+                color: $primary;
+            }
+        }
+
+        .PaginateNextItem {
+            font-weight: font-weight("medium");
+            font-size: font-size("ms");
+
+            a {
+                color: $primary;
+            }
+        }
+
+        .PaginateDisabledItem {
+            a {
+                color: $gray;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+// I really do love (to) flex, dont I?
+
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-col {
+  @include flex;
+  flex-direction: column;
+}
+@mixin flex-wrap {
+  @include flex;
+  flex-wrap: wrap;
+}
+@mixin flex-align-start {
+  @include flex;
+  align-items: flex-start;
+}
+@mixin flex-justify-start {
+  @include flex;
+  justify-content: flex-start;
+}
+@mixin flex-even {
+  @include flex;
+  justify-content: space-evenly;
+}
+@mixin flex-between {
+  @include flex;
+  justify-content: space-between;
+}
+
+.flex {
+  @include flex;
+}
+.flex-col {
+  @include flex-col;
+}
+.flex-wrap {
+  @include flex-wrap;
+}
+
+// background-cover
+// default behavior is cover, center, no repeat
+@mixin background-image(
+  $url: "",
+  $pos: "center",
+  $size: "cover",
+  $repeat: "no-repeat"
+) {
+  background-image: url($url);
+  background-size: unquote($size);
+  background-repeat: unquote($repeat);
+  background-position: unquote($pos);
+}

@@ -1,0 +1,11 @@
+@use "../../styles" as *;
+
+.SwitchBtns {
+  @include flex;
+  gap: 20px;
+  padding-block: 50px;
+
+  & > button {
+    padding: 10px 20px;
+  }
+}

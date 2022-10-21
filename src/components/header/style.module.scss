@@ -1,0 +1,245 @@
+@use "../../styles" as *;
+
+.Header {
+  position: sticky;
+  top: 0;
+  z-index: $zindex-fixed;
+
+  background: $white;
+
+  & .Wrraper {
+    box-shadow: $shd-tmp-deep-20;
+    height: $header-height;
+    padding-inline: $page-padding-inline;
+    @include flex-between;
+  }
+}
+
+.Logo {
+  @include flex;
+  gap: 20px;
+
+  .Hamburger {
+    @include flex-col;
+    gap: 5px;
+
+    div {
+      width: 30px;
+      height: 2.5px;
+      background-color: $gray;
+      transition: all 0.25s ease;
+    }
+
+    &[data-open="true"] {
+      & div:first-child {
+        transform: rotate(45deg) translateY(5px);
+      }
+      & div {
+        // second child
+        transform: rotate(-45deg) translateY(-5px);
+      }
+      & div:last-child {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.Links,
+.Btns {
+  @include flex;
+  gap: 5px;
+
+  svg {
+    width: 10px;
+  }
+}
+
+.dropdown {
+  $marginBetweenLinkToDropdown: 15px;
+  position: relative;
+
+  // stay on :hover state
+  margin-top: $marginBetweenLinkToDropdown;
+  padding-bottom: $marginBetweenLinkToDropdown;
+
+  &.left:hover .dropdown__list {
+    left: -85px;
+
+    &:before {
+      left: unset;
+      right: 20%;
+    }
+  }
+
+  & .dropdown__list {
+    position: absolute;
+    @include flex-col;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  &:hover .dropdown__list {
+    z-index: $zindex-dropdown;
+    margin-top: $marginBetweenLinkToDropdown;
+    padding-block: 10px;
+    left: 0;
+    width: max(150%, 150px);
+
+    border-radius: border-radius("small");
+
+    background: $light;
+    box-shadow: 0px 0px 0px 1px $shd_dark;
+
+    overflow: unset;
+
+    max-height: 1000px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+
+    // the triangle above link dropdown
+    &:before {
+      content: "";
+      position: absolute;
+      top: calc(0px - $marginBetweenLinkToDropdown);
+      left: 30px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid $light;
+
+      -webkit-filter: drop-shadow(0px -1px 0px $shd_dark);
+      filter: drop-shadow(0px -1px 0px $shd_dark);
+    }
+
+    & a {
+      width: 100%;
+      height: 40px;
+      padding: 5px 20px;
+      @include flex-justify-start;
+
+      cursor: pointer;
+
+      &,
+      & * {
+        color: inherit;
+        font-weight: font-weight("normal");
+        text-decoration: none !important;
+      }
+
+      &:hover {
+        background: $hvr-primary;
+      }
+    }
+  }
+}
+
+// Header open on mobile
+@keyframes dropIn {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 100%;
+  }
+}
+
+.MobileLinks {
+  position: fixed;
+  z-index: $zindex-dropdown;
+  top: $header-height;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $white;
+
+  @include flex-col;
+  justify-content: flex-start;
+
+  animation: dropIn 1s ease;
+  overflow: hidden;
+
+  .dropdown {
+    overflow: hidden;
+    width: 100%;
+
+    & > div:last-child {
+      @include flex-col;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s;
+
+      border-top: 1px solid $hvr-gray;
+
+      a {
+        display: block;
+        width: 100%;
+
+        padding-inline: 30px;
+        border-radius: 0%;
+        text-align: left;
+
+        &,
+        & * {
+          color: inherit;
+          font-size: font-size("m");
+          font-weight: font-weight("normal");
+          text-decoration: none !important;
+        }
+
+        &:first-child {
+          padding-top: 10px;
+        }
+        &:last-child {
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+    &:focus > div,
+    &:focus-visible > div,
+    &:focus-within > div {
+      max-height: 1000px;
+      border-top: 1px solid $hvr-gray;
+    }
+  }
+
+  & > a,
+  & .dropdown > *:first-child {
+    border-top: 1px solid $hvr-gray;
+    border-bottom: 1px solid $hvr-gray;
+    display: block;
+    width: 100%;
+    border-radius: 0%;
+    text-align: left;
+
+    &:hover {
+      background-color: inherit !important;
+      border-bottom-width: 0 !important;
+    }
+  }
+}
+
+.Btns {
+  gap: 20px;
+
+  & > * {
+    cursor: pointer;
+  }
+}
+
+.Profile {
+  @include flex;
+  gap: 10px;
+}
+
+.Profile .Img {
+  background: $hvr-primary;
+
+  width: 40px;
+  height: 40px;
+  border-radius: border-radius("round");
+
+  @include flex;
+}

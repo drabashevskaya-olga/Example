@@ -1,0 +1,61 @@
+@use "../../styles" as *;
+
+.Container {
+  background: $white;
+  top: -16px;
+  position: relative;
+}
+
+.navbar {
+  top: 0;
+  background: $white;
+}
+
+.Course {
+  margin: 20px 0;
+}
+
+.Head {
+  background: $white;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  box-shadow: 0 0 0 100vw var(--color) inset, 0 -16px 0 16px var(--color);
+
+  .Close {
+    padding: 10px 16px !important;
+
+    svg {
+      path {
+        stroke: $gray;
+        stroke-width: 3;
+      }
+    }
+  }
+}
+
+.HeadContent {
+  padding: 30px 15px;
+}
+
+.Body {
+  z-index: 2;
+  position: relative;
+  padding: 10px 16px;
+}
+
+.Card {
+  min-width: 100%;
+}
+
+.GrayIcon {
+  margin: 0 auto;
+  text-align: center;
+  width: 3rem;
+  height: 0.25rem;
+  border-radius: 3px;
+  position: relative;
+  background-color: $gray;
+  opacity: 0.8;
+  top: 0.5rem;
+}

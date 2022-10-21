@@ -1,0 +1,21 @@
+@use "../../../../styles" as *;
+
+.Container {
+  padding-inline: $page-padding-inline;
+  padding-block: 100px;
+
+  p {
+    position: relative;
+    font-size: 25px;
+  }
+
+  p:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 3px;
+    background: $primary;
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../../../styles" as *;
+
+.OR {
+  @include flex;
+  position: relative;
+  isolation: isolate;
+  z-index: 2;
+  font-size: font-size("sm");
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    background-color: $white;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: $gray;
+    z-index: -2;
+  }
+}

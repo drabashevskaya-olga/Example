@@ -1,0 +1,28 @@
+@use "../../../../styles" as *;
+
+.Container {
+    background-color: $white;
+    border-top: 4px solid $primary;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    .Content {
+        @media (max-width: $bp-mobile) {
+            width: 100%;
+        }
+    }
+
+    .Text {
+        color: $txt_pane_gray;
+    }
+
+    .Button {
+        a {
+            font-weight: font-weight("bold");
+        }
+
+        @media (max-width: $bp-mobile) {
+            width: 100%;
+        }
+    }
+}

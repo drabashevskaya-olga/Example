@@ -1,0 +1,127 @@
+@use "../../../../styles" as *;
+
+.Container {
+    padding-inline: max(5%, (100vw - 1230px) / 2);
+    margin-bottom: 120px;
+
+    H2 {
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url("../../../../assets/partner/underline-title.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 330px;
+            height: 19px;
+            bottom: -18px;
+
+            @media (max-width: $bp-tablet) {
+                width: 360px;
+                bottom: 33px;
+            }
+
+            @media (max-width: $bp-mobile) {
+                display: none;
+            }
+        }
+    }
+
+    .Cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-block: 30px 5px;
+
+        @media (max-width: $bp-mobile) {
+            gap: 20px;
+        }
+    }
+
+    .CardItem {
+        width: calc(100% / 4);
+
+        @media (max-width: $bp-tablet) {
+            width: calc(100% / 3);
+        }
+
+        @media (max-width: $bp-mobile) {
+            width: calc(100% / 2 - 20px);
+        }
+    }
+
+    .Card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 245px;
+        min-height: 206px;
+        width: 100%;
+        padding: 25px 20px;
+        background: #FFFFFF;
+        border: 1px solid #F2F2F2;
+        box-sizing: border-box;
+        box-shadow: 0 10px 30px rgb(43 73 95 / 5%);
+        border-radius: 24px;
+        margin: 0 auto 20px;
+
+        @media (max-width: $bp-mobile) {
+            margin: 0 auto;
+        }
+
+        & svg {
+            width: 50px;
+            height: 50px;
+            fill: inherit;
+
+            path,
+            g {
+                fill: inherit;
+            }
+        }
+
+        .Link {
+            font-size: font-size("ms");
+            color: $primary;
+            font-weight: font-weight("bold");
+            border-bottom: 1px solid $primary;
+            border-radius: 0;
+        }
+    }
+}
+
+.PopupWrapper {
+    border: 1px dashed #1597F9;
+    margin: 10px auto;
+    padding: 5px;
+    width: max-content;
+    border-radius: 8px;
+}
+
+.Started {
+    background-color: $primary;
+    color: $white !important;
+    padding: 15px 40px;
+    border-radius: 8px;
+    display: block;
+}
+
+.List {
+    list-style: none;
+
+    .ListItem {
+        font-size: font-size("ms");
+        width: calc(100% / 2);
+        display: inline-block;
+        padding: 0 10px 10px;
+        position: relative;
+    }
+
+    svg {
+        position: absolute;
+        left: -22px;
+        top: 4px;
+        fill: $primary;
+    }
+}

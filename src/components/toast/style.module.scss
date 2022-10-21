@@ -1,0 +1,27 @@
+@use "../../styles" as *;
+
+.Container {
+  position: fixed;
+  background: white;
+
+  top: 30px;
+  right: 30px;
+
+  width: var(--width);
+
+  border-radius: border-radius("medium");
+  padding: 10px 25px;
+
+  @extend .shd-4;
+
+  z-index: $zindex-tooltip;
+  transition: 0.25s;
+
+  &[aria-expanded="true"] {
+    right: 30px;
+  }
+  &[aria-expanded="false"] {
+    right: calc(0px - var(--width));
+    transform: translateX(4px);
+  }
+}

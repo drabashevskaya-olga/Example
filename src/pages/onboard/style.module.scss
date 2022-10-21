@@ -1,0 +1,104 @@
+@use "../../styles" as *;
+
+.SearchBox {
+  width: $small-item;
+  max-width: 90%;
+}
+
+.SearchBox__btns {
+  @include flex;
+
+  position: relative;
+  isolation: isolate;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    width: 30px;
+    background: $primary;
+    z-index: -1;
+  }
+
+  & a {
+    flex: 1;
+    @include flex;
+
+    height: 50px;
+
+    outline: none;
+    border: none;
+
+    font-weight: font-weight("medium");
+
+    background-color: $hvr-gray;
+    color: $primary !important;
+
+    &[active="true"] {
+      background-color: $primary;
+
+      color: $light !important;
+    }
+
+    &:first-child {
+      border-radius: border-radius("medium");
+      border-bottom-left-radius: unset;
+    }
+    &:last-child {
+      border-radius: border-radius("medium");
+      border-bottom-right-radius: unset;
+    }
+  }
+}
+
+.SearchBox__select {
+  position: relative;
+  text-align: center;
+
+  & input {
+    height: 50px;
+    text-indent: 20px;
+  }
+
+  & .Icon {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+
+    svg {
+      color: $primary;
+      font-size: 20px;
+    }
+  }
+}
+
+.Popular {
+  @include flex-wrap;
+  gap: 7.5px;
+}
+
+.popular {
+  @include flex;
+  gap: 7.5px;
+
+  a {
+    padding: 2.5px 7.5px;
+    border-radius: border-radius("medium");
+    background-color: darken($gray, 15%);
+    color: $light;
+    font-size: font-size("sm");
+
+    @include flex;
+    gap: 5px;
+
+    cursor: pointer;
+    transition: 0.25s;
+
+    &:hover {
+      background-color: darken($gray, 10%);
+      box-shadow: $shd-m $shd-dark;
+    }
+  }
+}

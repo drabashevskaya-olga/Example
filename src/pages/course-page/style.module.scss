@@ -1,0 +1,76 @@
+@use "../../styles" as *;
+
+.Toast {
+  border-left: 4px solid $primary;
+
+  @include flex-col;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.Container {
+  @extend .page;
+  padding-block: 50px;
+
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+
+  grid-template-areas:
+    "Search empty"
+    "Course Ad"
+    "SearchUni Ad"
+    "About Ad"
+    "Lecturers Ad"
+    "Recom Ad";
+
+  gap: 15px 30px;
+
+  & > div {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .Container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "Ad"
+      "Search"
+      "Course"
+      "SearchUni"
+      "About"
+      "Lecturers"
+      "Recom";
+
+    & .Ad {
+      position: relative;
+      top: 0;
+    }
+  }
+}
+
+.Search {
+  grid-area: Search;
+}
+.Ad {
+  grid-area: Ad;
+  position: sticky;
+  top: calc($header-height + $header-helper-height + 10px);
+  height: min-content;
+}
+.Course {
+  grid-area: Course;
+}
+.SearchUni {
+  grid-area: SearchUni;
+}
+.About {
+  grid-area: About;
+}
+.Lecturers {
+  grid-area: Lecturers;
+}
+.Recom {
+  grid-area: Recom;
+  overflow: hidden;
+}

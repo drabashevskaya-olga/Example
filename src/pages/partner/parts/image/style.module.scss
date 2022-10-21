@@ -1,0 +1,78 @@
+@use "../../../../styles" as *;
+
+.Container {
+    background-color: $light-blue-bg;
+    padding: 170px 0 0;
+
+    @media (max-width: $bp-tablet) {
+        padding: 100px 0 0;
+    }
+
+    .Col {
+        padding-bottom: 120px;
+
+        @media (max-width: $bp-mobile) {
+            padding-bottom: 60px;
+        }
+    }
+
+    .Text {
+        color: $comet;
+        text-align: left;
+
+        @media (max-width: $bp-mobile) {
+            text-align: center;
+        }
+    }
+
+    h2 {
+        text-align: left;
+        
+        @media (max-width: $bp-mobile) {
+            text-align: center;
+        }
+    }
+
+    .BtnDashed {
+        border: 1px dashed #1597F9;
+        padding: 5px;
+        width: 275px;
+
+        @media (max-width: $bp-mobile) {
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 20px 0;
+            border-radius: 8px;
+            font-size: font-size("m");
+            font-weight: font-weight("medium");
+        }
+    }
+
+    .ImageWrapper {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        @media (max-width: $bp-mobile) {
+            position: relative;
+            text-align: center;
+        }
+    
+        & img {
+            max-height: 550px;
+
+            @media (max-width: $bp-tablet) {
+                max-height: 400px;
+                margin: 0 auto;
+            }
+
+            @media (max-width: $bp-mobile) {
+                max-height: 250px;
+                margin: 0 auto;
+                width: auto;
+            }
+        }
+    }
+}

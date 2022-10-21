@@ -1,0 +1,72 @@
+@use "../../../../styles" as *;
+
+.Content {
+  padding-block: 30px;
+
+  @extend .page;
+  background-color: $light;
+
+  @include flex;
+  gap: 50px;
+
+  ul {
+    @media (max-width: $bp-tablet) {
+      & {
+        display: none;
+      }
+    }
+
+    li {
+      margin-block: 30px;
+      list-style: none;
+
+      &:before {
+        content: "";
+        color: $success;
+        font-weight: bold;
+        display: inline-block;
+
+        margin-right: 10px;
+
+        transform: rotate(45deg);
+        height: 18px;
+        width: 9px;
+        border-bottom: 3.5px solid $success;
+        border-right: 3.5px solid $success;
+      }
+    }
+  }
+}
+
+.Messages {
+  & .Msg__body {
+    position: relative;
+    background: #e6f5ff;
+    border-radius: 20px;
+
+    p {
+      padding: 20px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 10%;
+
+      border-top: 12.5px solid #e6f5ff;
+      border-left: 12.5px solid transparent;
+      border-right: 12.5px solid transparent;
+    }
+  }
+  & .Msg__details {
+    margin: 25px;
+
+    @include flex-col;
+    align-items: flex-start;
+
+    h3 {
+      margin: 0;
+    }
+  }
+}

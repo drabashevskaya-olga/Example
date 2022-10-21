@@ -1,0 +1,9 @@
+{
+  "imports": [],
+  "key": "home",
+  "HomeHero": {
+    "headline": "The best way to learn STEM",
+    "paragraph": "Bite-sized video tutorials, study guides and practice questions customized to your school course, course and major textbooks",
+    "cta_btn": "See how it works"
+  }
+}

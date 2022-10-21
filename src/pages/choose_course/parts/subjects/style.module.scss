@@ -1,0 +1,67 @@
+@use "../../../../styles" as *;
+
+.Container {
+  background-color: white;
+
+  max-height: var(--max-height);
+  max-width: 100%;
+  overflow: auto;
+  @include VerticalScrollbar;
+
+  border-radius: border-radius("medium");
+
+  transition: max-height 0.5s ease-in-out;
+
+  & > * {
+    padding-inline: 5%;
+  }
+}
+
+.Headline {
+  width: 100%;
+  @include flex-between;
+
+  height: 50px;
+
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+
+  & button {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(360deg);
+  }
+}
+
+.Body {
+  width: 100%;
+  padding-bottom: 20px;
+
+  @include flex-col;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.Body label {
+  cursor: pointer;
+  @include flex;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+
+  span {
+    overflow: hidden;
+    width: 90%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .Container .Headline h3 {
+    font-size: font-size("m") !important;
+  }
+  .Body label {
+    font-size: font-size("ms");
+  }
+}

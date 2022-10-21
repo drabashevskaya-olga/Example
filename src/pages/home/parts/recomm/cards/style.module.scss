@@ -1,0 +1,126 @@
+@use "../../../../../styles" as *;
+
+.DotsScroll {
+  @media (max-width: $bp-tablet) {
+    & {
+      display: none;
+    }
+  }
+
+  @include flex;
+  gap: 15px;
+
+  div {
+    height: 10px;
+    width: 10px;
+    border-radius: border-radius("round");
+    background: $hvr_gray;
+    cursor: pointer;
+    transition: 0.25s;
+
+    &:hover {
+      background: $gray;
+    }
+
+    &[active="true"] {
+      background: $primary;
+    }
+  }
+}
+
+.Container {
+  width: 820px;
+  max-width: 100%;
+}
+
+.CardsWrraper {
+  overflow-x: auto;
+  padding: 10px;
+  display: flex;
+
+  @include HorizontalScrollbar;
+
+  @media (min-width: $bp-tablet) {
+    &[data-snap="true"] {
+      scroll-snap-type: x mandatory;
+    }
+    &::-webkit-scrollbar {
+      height: 0 !important;
+    }
+  }
+}
+
+.Card {
+  min-width: 800px;
+
+  scroll-snap-align: center;
+
+  background: $white;
+  border-top: 7.5px solid $success;
+
+  border-radius: border-radius("medium");
+  box-shadow: $shd-sm $shd-dark;
+
+  padding: 20px;
+  margin-inline: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+
+  & .Rating {
+    svg {
+      font-size: 25px;
+      path {
+        fill: $gold;
+      }
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    & {
+      min-width: 350px !important;
+    }
+  }
+}
+
+.Card:not(.Small) {
+  padding: 50px;
+  gap: 5px;
+
+  &,
+  & .Card__name {
+    @include flex-col;
+  }
+  & p {
+    text-align: center;
+  }
+}
+
+.Card.Small {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 20px;
+  grid-template-areas:
+    "img c_name"
+    "rating rating"
+    "p p";
+
+  & img {
+    grid-area: img;
+    width: 75px;
+  }
+  & .Card__name {
+    grid-area: c_name;
+    margin-block: auto;
+  }
+  & .Rating {
+    grid-area: rating;
+  }
+  & p {
+    grid-area: p;
+  }
+}

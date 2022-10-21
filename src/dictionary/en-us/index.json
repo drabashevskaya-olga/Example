@@ -1,0 +1,5 @@
+{
+  "imports": ["home", "pricing", "my_modules", "header"],
+  "currency": "USD",
+  "currency_symbol": "$"
+}

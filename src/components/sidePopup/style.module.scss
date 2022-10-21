@@ -1,0 +1,45 @@
+@use "../../styles" as *;
+
+.modalSideSize {
+  max-width: none !important;
+  width: var(--width);
+  left: var(--left);
+  right: var(--right);
+  min-height: 100%;
+  background: $white;
+  margin: 0;
+
+  &.modalRight {
+    float: right;
+  }
+
+  & > div {
+    border: none;
+    border-radius: 0;
+    height: 100%;
+
+    @media (max-width: $bp-mobile) {
+      @if --mobile-border-radius {
+        border-radius: var(--mobile-border-radius);
+      }
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    @if --tablet-width {
+      width: var(--tablet-width);
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    @if --mobile-width {
+      width: var(--mobile-width);
+    }
+    @if --mobile-top {
+      top: var(--mobile-top);
+    }
+    @if --mobile-border-radius {
+      border-radius: var(--mobile-border-radius);
+    }
+  }
+}

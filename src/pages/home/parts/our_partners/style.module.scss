@@ -1,0 +1,73 @@
+@use "../../../../styles" as *;
+
+.Imgs {
+  @include flex-wrap;
+  align-items: stretch;
+
+  // dont forget that max-width of screen is 1230px, so if we want 4 images i
+  .Img {
+    margin: 25px;
+    padding: 2.5px 5px;
+    width: 250px;
+    @include flex;
+    background-color: $white;
+    box-shadow: $shd-sm $shd-dark;
+    border-radius: border-radius("small");
+    cursor: pointer;
+    transition: 0.25s;
+    overflow: hidden;
+
+    A {
+      @include flex;
+    }
+
+    &:hover {
+      box-shadow: $shd-glow $shd-dark;
+    }
+
+    img {
+      position: relative;
+      width: auto;
+      max-width: 160px;
+      margin: 10% 0;
+      max-height: 100px;
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    .Img {
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    .Img {
+      height: 80px;
+      width: 95%;
+      justify-content: space-between;
+      padding: unset;
+      margin: 10px;
+      box-shadow: $shd-sm $shd-dark;
+
+      &::after {
+        content: "\2198";
+        width: 100%;
+        @include flex;
+        justify-content: end;
+        align-items: center;
+        font-size: 30px;
+        transform: rotate(-50deg);
+        margin-right: 20px;
+        color: black;
+        transform-origin: right;
+        margin-bottom: 15px;
+      } 
+
+      img {
+        margin: 5%;
+        max-width: 80px;
+        padding: 10px;
+      }
+    }
+  }
+}

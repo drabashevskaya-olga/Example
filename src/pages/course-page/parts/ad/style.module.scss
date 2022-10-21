@@ -1,0 +1,95 @@
+@use "../../../../styles" as *;
+
+.Container {
+  background: $white;
+  @extend .shd-4;
+  border-radius: border-radius("small");
+
+  padding: 10px;
+
+  ul {
+    list-style: none;
+
+    padding: 10px;
+    padding-bottom: 0 !important;
+
+    @include flex-col;
+    gap: 10px;
+    align-items: flex-start;
+
+    li {
+      @include flex-justify-start;
+      gap: 10px;
+
+      svg {
+        color: $primary;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .bottom {
+    position: relative;
+    @include flex;
+
+    & > a,
+    button {
+      flex: 1;
+      padding-block: 10px;
+
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    .Menu {
+      margin: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: border-radius("round");
+      @include flex;
+      cursor: pointer;
+
+      &:hover {
+        background: $hvr-gray;
+      }
+
+      svg {
+        color: $primary;
+      }
+    }
+
+    .tooltip {
+      display: none;
+    }
+
+    .Menu:hover + .tooltip,
+    .tooltip {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -30px;
+
+      font-size: font-size("sm");
+
+      button {
+        border: none;
+        outline: none;
+        padding: 5px;
+        border-radius: border-radius("small");
+        background: $white;
+        @extend .shd-4;
+        color: $danger;
+
+        &:hover {
+          background: $hvr-primary;
+        }
+
+        svg path {
+          stroke: $danger;
+        }
+      }
+    }
+  }
+}

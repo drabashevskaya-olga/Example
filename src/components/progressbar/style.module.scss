@@ -1,0 +1,18 @@
+@use "../../styles" as *;
+
+.bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  background: $hvr-primary;
+  border-radius: border-radius("medium");
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: var(--progress);
+    height: 100%;
+    background: $primary;
+    border-radius: inherit;
+  }
+}

@@ -1,0 +1,87 @@
+@use "../../../../styles" as *;
+
+.Container {
+  width: 100vw;
+
+  & > div {
+    width: 1000px;
+    max-width: 90%;
+    margin-inline: auto;
+  }
+
+  & > div > div {
+    border-radius: border-radius("medium");
+    overflow: hidden;
+    position: relative;
+  }
+
+  & > div > div > div:last-child {
+    padding: unset;
+    @include flex-wrap;
+    align-items: flex-start;
+
+    & > div {
+      flex: 1;
+      padding: 40px 20px;
+    }
+  }
+}
+
+.Content {
+  background-color: #f5f5f5;
+  @include flex-col;
+  text-align: center;
+
+  & .wehave {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .wehave_card {
+      @include flex-col;
+      gap: 5px;
+
+      .wehave_card_checkmark {
+        @include flex;
+        width: 40px;
+        height: 40px;
+        border-radius: border-radius("round");
+        background: $primary;
+
+        color: $white;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    & {
+      display: none;
+    }
+  }
+}
+
+.Form {
+  @include flex-col;
+  text-align: center;
+
+  p {
+    max-width: 85%;
+  }
+
+  & > button {
+    margin-top: 30px;
+  }
+
+  form {
+    margin-top: 60px;
+    @include flex-col;
+    gap: 20px;
+
+    div {
+      width: 100%;
+    }
+  }
+}

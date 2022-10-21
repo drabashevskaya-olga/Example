@@ -1,0 +1,164 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include flex-col;
+  align-items: flex-start;
+  gap: 20px;
+}
+.Headline {
+  width: 100%;
+  @include flex;
+
+  h2 {
+    flex: 1;
+  }
+  div {
+    flex: 1;
+    @include flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+.Video {
+  width: 100%;
+  position: relative;
+
+  & > div:first-child {
+    border-radius: border-radius("small");
+    @extend .shd-6;
+  }
+
+  .Controls {
+    margin-top: 10px;
+    @include flex;
+    justify-content: space-between;
+
+    @media (max-width: $bp-mobile) {
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    div {
+      flex: 1;
+      @include flex;
+
+      &:first-child {
+        justify-content: flex-start;
+        gap: 10px;
+
+        .CC {
+          outline: none;
+          border: none;
+          background-color: transparent;
+          font-weight: bold;
+          color: $dark;
+
+          &[data-on="true"] {
+            color: $primary;
+          }
+        }
+
+        label {
+          @include flex;
+          gap: 7.5px;
+
+          span {
+            font-size: font-size("sm");
+          }
+
+          button {
+            outline: none;
+            border: none;
+            background: none;
+
+            svg {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+
+        a,
+        button {
+          font-size: font-size("sm");
+        }
+
+        button {
+          padding: 2px 20px;
+          white-space: nowrap;
+
+          svg {
+            transition: 0.25s;
+          }
+
+          &[data-rotate="true"] {
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+
+          &:first-child {
+            color: $primary;
+            font-weight: font-weight("bold");
+          }
+        }
+      }
+    }
+  }
+
+  .transcripts {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: border-radius("medium");
+    scroll-behavior: smooth;
+    font-size: font-size("cmnt-l");
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    @include VerticalScrollbar;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+
+    &[data-expanded="true"] {
+      max-height: 250px;
+      padding-block: 5px;
+      border: 1px solid $hvr_gray;
+    }
+
+    div {
+      position: relative;
+      padding: 5px 20px;
+
+      &:hover {
+        background: $hvr_light;
+      }
+      &[data-active="true"] {
+        background: $hvr_light;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 5px;
+          height: 100%;
+          background: $primary;
+        }
+      }
+
+      label {
+        color: $gray;
+      }
+      span {
+        margin-left: 15px;
+      }
+    }
+  }
+}

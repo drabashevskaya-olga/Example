@@ -1,0 +1,144 @@
+@use "../../styles" as *;
+
+.Container {
+  @include background-image(
+    "../../assets/careers/join_us_desktop_background.jpg",
+    $pos: "top center"
+  );
+  background-color: $carrers_bg;
+  background-size: contain;
+  color: $comet;
+
+  @media (max-width: $bp-tablet) {
+    @include background-image(
+      "../../assets/careers/join_us_tablet_background.jpg"
+    );
+  }
+
+  @media (max-width: $bp-mobile) {
+    @include background-image(
+      "../../assets/careers/join_us_mobile_background.jpg"
+    );
+  }
+}
+
+.P {
+  color: $comet;
+}
+
+.Select {
+  gap: 12px;
+
+  & select {
+    color: $comet;
+    width: 276px;
+  }
+}
+
+.Location {
+  @media (max-width: $bp-mobile) {
+    text-align: right;
+  }
+}
+
+.TableHeader {
+  color: $blue;
+  letter-spacing: 2.8px;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.TableContent {
+  color: $dark;
+}
+
+.AccordionItem {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+  .AccordionHeader {
+    & button {
+      background-color: $white !important;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      &::after {
+        display: none;
+      }
+      & svg {
+        margin-left: 8px;
+
+        @media (max-width: $bp-mobile) {
+          float: right;
+        }
+      }
+      &[aria-expanded="true"] svg {
+        transform: rotate(180deg);
+        transition: all 0.5s ease 0s;
+      }
+      &[aria-expanded="false"] svg {
+        transform: rotate(0deg);
+        transition: all 0.5s ease 0s;
+      }
+    }
+  }
+
+  .AccordionBody {
+    & .P {
+      color: $comet;
+      padding-right: 12px;
+      padding-left: 12px;
+    }
+    & .Ul {
+      color: $comet;
+      padding-right: 12px;
+      padding-left: 24px;
+      list-style: none;
+    }
+    .CheckMark {
+      position: absolute;
+      left: -22px;
+      top: 7px;
+      color: $blue;
+    }
+  }
+
+  & button:focus {
+    box-shadow: none;
+  }
+
+  .ListItemCheck {
+    color: $blue;
+  }
+}
+
+.blue {
+  color: $primary;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 126px;
+    width: 200px;
+    @include background-image("../../assets/careers/blue-round.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -60px;
+    top: -22px;
+
+    @media (max-width: $bp-tablet) {
+      left: -60px;
+      top: -18px;
+    }
+
+    @media (max-width: $bp-mobile) {
+      height: 126px;
+      width: 154px;
+      left: -46px;
+      top: -28px;
+    }
+  }
+}

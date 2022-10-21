@@ -1,0 +1,14 @@
+@use "../../styles" as *;
+
+.Forms {
+  width: 600px;
+  max-width: 100%;
+
+  margin-inline: auto;
+
+  background: $white;
+
+  & > * {
+    margin-block: 50px;
+  }
+}

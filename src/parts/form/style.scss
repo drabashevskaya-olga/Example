@@ -1,0 +1,85 @@
+@use "../../styles" as *;
+
+input,
+textarea {
+  &.form-control {
+    &:active,
+    &:focus,
+    &:hover {
+      box-shadow: inherit;
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $primary;
+    }
+  }
+}
+
+input[no-decoration="true"] {
+  &,
+  &:focus,
+  &:active,
+  &:hover,
+  &:focus-visible {
+    border: none;
+    outline: 0px;
+  }
+}
+
+.select {
+  position: relative;
+  display: inline-block;
+
+  .icon {
+    position: absolute;
+    width: calc(100% - 10px);
+    height: 100%;
+
+    &.icons {
+      left: 10px;
+      width: calc(100% - 20px);
+    }
+
+    pointer-events: none;
+    @include flex-between;
+    flex-direction: row-reverse;
+
+    svg {
+      width: 15px;
+      color: $primary;
+    }
+  }
+
+  .icon + select {
+    padding: 4px 36px 4px 12px;
+  }
+  .icons + select {
+    padding: 4px 36px;
+  }
+
+  select {
+    width: 100%;
+    background: $white;
+    border-radius: border-radius("small");
+
+    border: none;
+    @extend .shd-2;
+
+    color: $dark;
+
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+
+    outline: none;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: $primary;
+    }
+  }
+}

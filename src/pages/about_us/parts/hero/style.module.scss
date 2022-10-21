@@ -1,0 +1,10 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include background-image("../../../../assets/about_us/banner.png");
+}
+@media (max-width: $bp-mobile) {
+  .Container {
+    @include background-image("../../../../assets/about_us/banner_mobile.jpg");
+  }
+}

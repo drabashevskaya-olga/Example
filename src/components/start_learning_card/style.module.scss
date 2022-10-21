@@ -1,0 +1,58 @@
+@use "../../styles" as *;
+
+.Card {
+  width: 250px;
+  height: 200px;
+
+  @include flex-col;
+  justify-content: flex-start;
+  padding-top: 30px;
+
+  background: $white;
+  @extend .shd-2;
+  border-radius: border-radius("medium");
+  border-top: 12.5px solid var(--color);
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: $shd-tmp-glow $shd-dark;
+
+    & h2 {
+      text-decoration: underline !important;
+      text-decoration-color: var(--color) !important;
+    }
+  }
+
+  h2 {
+    margin-top: 30px;
+    @extend .fs-ms;
+    @extend .fw-medium;
+    font-weight: 600;
+    color: lighten($dark, 20%);
+    text-align: center;
+    padding-inline: 20px;
+  }
+
+  svg {
+    width: 50px;
+    height: 50px;
+
+    path {
+      fill: var(--color);
+    }
+
+    path[fill="white"] {
+      fill: white;
+    }
+
+    path[fill="#fff"] {
+      fill: white;
+    }
+
+    rect[fill="none"] {
+      fill: var(--color);
+    }
+  }
+}

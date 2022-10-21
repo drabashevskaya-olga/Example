@@ -1,0 +1,29 @@
+@use "../../../../styles" as *;
+
+.Container {
+
+    background-color: $partner-bg;
+    padding: 24px 0;
+
+    @media (max-width: $bp-mobile) {
+        padding: 16px 0;
+    }
+
+    .Logo {
+        @media (max-width: $bp-mobile) {
+            max-height: 22px;
+        }
+    }
+
+    .CollegeLogo {
+        img {
+            max-width: 200px;
+            height: auto;
+            max-height: 75px;
+
+            @media (max-width: $bp-mobile) {
+                max-height: 40px;
+            }
+        }
+    }
+}

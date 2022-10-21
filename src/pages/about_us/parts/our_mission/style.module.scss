@@ -1,0 +1,13 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include background-image(
+    "../../../../assets/about_us/our-mission.png",
+    "center left"
+  );
+
+  h1,
+  p {
+    @extend .paragraph;
+  }
+}

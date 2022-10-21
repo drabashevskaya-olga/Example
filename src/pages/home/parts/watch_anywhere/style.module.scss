@@ -1,0 +1,67 @@
+@use "../../../../styles" as *;
+
+.Container {
+  @include flex-wrap;
+  justify-content: space-evenly;
+  padding-bottom: 100px;
+  isolation: isolate;
+
+  & > div {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .Text {
+    @include flex-col;
+    align-items: flex-start;
+    margin-left: 50px;
+    z-index: 1;
+  }
+
+  @media (max-width: $bp-tablet) {
+    & div:last-child {
+      margin-top: 100px;
+      margin-left: 0;
+      align-items: center;
+
+      &,
+      & * {
+        text-align: center;
+      }
+    }
+    & .Imgs {
+      height: 200px !important;
+
+      & img:first-child {
+        left: 10% !important;
+      }
+      & img:last-child {
+        left: 30% !important;
+      }
+    }
+  }
+}
+
+.Imgs {
+  position: relative;
+  height: 350px;
+
+  img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: border-radius("medium");
+
+    &:first-child {
+      box-shadow: $shd-tmp-deep-20;
+    }
+
+    &:last-child {
+      height: 60%;
+      z-index: 1;
+      bottom: -20%;
+      left: 20%;
+      box-shadow: $shd-tmp-deep-20;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use "../../../../styles" as *;
+
+.Container {
+  & form {
+    margin-block: 15px;
+    @include flex-col;
+    gap: 10px;
+
+    .bottom {
+      width: 100%;
+      @include flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+
+      .btns {
+        @include flex;
+      }
+    }
+  }
+}

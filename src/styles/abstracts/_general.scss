@@ -1,0 +1,48 @@
+@use "base" as *;
+@use "colors" as *;
+
+.pointer {
+  cursor: pointer;
+}
+
+.page {
+  width: 100%;
+  padding-inline: $page-padding-inline;
+}
+
+@for $i from 10 through 1 {
+  .page-#{$i * 10} {
+    min-height: #{$i * 10}vh;
+    @extend .page;
+  }
+}
+
+@mixin HorizontalScrollbar() {
+  &::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $hvr_gray;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 10px;
+  }
+}
+
+@mixin VerticalScrollbar() {
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,95 @@
+@use "../../styles" as *;
+
+.progressStatus {
+    background-color: $primary;
+    border-radius: 3px;
+    padding: 10px 15px;
+    max-width: 126px;
+    color: $white;
+    font-size: font-size("cmnt-s");
+    margin: 0 auto;
+}
+
+.inputReferal {
+    box-shadow: 0 4px 8px 0 hsla(0, 0, 0, 0.06);
+}
+
+.TabsList {
+    border: none !important;
+    box-shadow: 0 16px 16px -16px hsl(0, 0, 0, 0.33);
+
+    button {
+        font-weight: font-weight("bold");
+        color: $primary !important;
+        border: none !important;
+
+        &[aria-selected="true"] {
+            border-bottom: 3px solid $primary !important;
+        }
+    }
+}
+
+.shareLinks {
+    gap: 10px;
+
+    a {
+        padding: 12px 15px;
+        color: white;
+        font-weight: font-weight("bold");
+        border-radius: 3px;
+
+        svg {
+            height: 22px;
+            width: 22px;
+            margin-right: 5px;     
+        }
+
+        &.shareLinkEmail {
+            color: $dark;
+            background-color: $gray;
+        }
+
+        &.shareLinkFacebook {
+            background-color: $fb-color;
+        }
+
+        &.shareLinkTwitter {
+            background-color: $twitter-color;
+        }
+
+        &.shareLinkPinterest {
+            background-color: $pinterest-color;
+        }
+    }
+}
+
+.Rewards {
+    box-shadow: 0 8px 16px 0 hsl(0, 0, 0, 0.12);
+    padding: 20px;
+
+    P {
+        margin-bottom: 20px;
+        font-size: font-size("m");
+        font-weight: font-weight("light-headline");
+        margin-bottom: 15px;
+    }
+
+    svg {
+        width: 27px;
+        height: 27px;
+        color: $gray;
+        margin-right: 5px;
+
+        &.Active {
+            color: $primary;
+        }
+    }
+
+    .RewardsInfo {
+        background-color: $primary;
+        color: $white;
+        padding: 10px 15px;
+        border-radius: 26px;
+        margin-right: 10px;
+    }
+}

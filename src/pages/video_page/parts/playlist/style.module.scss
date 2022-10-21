@@ -1,0 +1,109 @@
+@use "../../../../styles" as *;
+
+.Container {
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+  @include VerticalScrollbar;
+
+  padding-inline: 5px;
+
+  .ItemHead {
+    @include flex-col;
+    align-items: flex-start;
+    gap: 2.5px;
+
+    span:first-child {
+      font-weight: font-weight("medium");
+    }
+    & span:last-child {
+      font-size: font-size("cmnt-s");
+      color: $gray;
+    }
+  }
+
+  button {
+    border-color: none;
+    border-bottom: 1px solid #e5e5ea;
+
+    &:focus {
+      color: inherit;
+      box-shadow: none;
+      background-color: $white;
+      border: none;
+      border-bottom: 1px solid #e5e5ea;
+      box-shadow: 0 2px 3px 0 rgb(51 64 85 / 10%);
+    }
+  }
+
+  .VideoList {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      position: relative;
+
+      &[data-viewing="true"] a {
+        font-weight: font-weight("medium");
+        color: $dark;
+
+        &::after {
+          border-color: $primary;
+        }
+      }
+      &:last-child::after {
+        height: 00%;
+      }
+
+      &[active="true"] {
+        & a::after {
+          content: "\2713";
+          background-color: $primary;
+          border-color: $primary;
+        }
+      }
+      &::after {
+        content: "";
+        width: 1px;
+        height: 100%;
+        background-color: $gray;
+        position: absolute;
+        left: 10px;
+        bottom: -50%;
+      }
+
+      & a {
+        display: block;
+        padding-left: 40px;
+        color: $gray;
+        font-size: font-size("sm");
+
+        &:hover {
+          color: $txt_dark;
+
+          &:after {
+            border: 1px solid $primary;
+          }
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 18px;
+
+          @include flex;
+          font-size: font-size("xsm");
+          color: $white;
+
+          width: 21px;
+          height: 21px;
+          border-radius: 50%;
+          border: 1px solid $gray;
+          background-color: $white;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
